@@ -1,3 +1,4 @@
+// mongoimport.js
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/ngff-dev');
 var db = mongoose.connection;
@@ -6,7 +7,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var personnel = require('./personnel');
 
 var Player = mongoose.model(
-	'Player',
+	'Player', 
 	mongoose.Schema({
 		"pos": Number,
 		"num": String,
@@ -34,6 +35,6 @@ Player.find({},function(err,dbplayers){
 			console.log("Error on player save!");
 		})
 	}
-
+	
 	console.log("Player import finished! Press Ctrl+C to exit.");
 })
